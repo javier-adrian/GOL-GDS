@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dinah6bshumd"]
+
+[ext_resource type="Texture2D" uid="uid://bj7rx8wt11eii" path="res://assets/golrev1.png" id="1_7aer6"]
+[ext_resource type="Script" path="res://World.gd" id="2_i4kns"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxwuu"]
+texture = ExtResource("1_7aer6")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pxj78"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_vxwuu")
+
+[node name="Main" type="Node2D"]
+
+[node name="World" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_pxj78")
+format = 2
+layer_0/name = "main"
+layer_0/tile_data = PackedInt32Array(196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 131075, 0, 0, 65538, 0, 0)
+script = ExtResource("2_i4kns")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="World" method="_on_timer_timeout"]
