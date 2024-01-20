@@ -6,6 +6,8 @@ var dead: Array[Vector2i]
 var cell: Vector2i
 var neighbors: int
 
+@export var timer: Timer
+
 
 func is_alive(cell: Vector2i):
 	return get_cell_atlas_coords(0, cell) == Vector2i(0,0)
@@ -51,4 +53,17 @@ func _on_timer_timeout():
 
 
 func _ready():
-	update()
+	for x in range(16):
+		for y in range(16):
+			cell = Vector2i(x,y)
+			if is_alive(cell):
+				living.append(cell)
+			else:
+				dead.append(cell)
+
+	for cells in dead:
+		set_cell(0, cells, 0, Vector2i(1,0))
+	for cells in living:
+		set_cell(0, cells, 0, Vector2i(0,0))
+
+	timer.start()

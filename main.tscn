@@ -15,15 +15,15 @@ sources/0 = SubResource("TileSetAtlasSource_vxwuu")
 
 [node name="Main" type="Node2D"]
 
-[node name="World" type="TileMap" parent="."]
+[node name="World" type="TileMap" parent="." node_paths=PackedStringArray("timer")]
 tile_set = SubResource("TileSet_pxj78")
 format = 2
 layer_0/name = "main"
 layer_0/tile_data = PackedInt32Array(196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 131075, 0, 0, 65538, 0, 0)
 script = ExtResource("2_i4kns")
+timer = NodePath("../Timer")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
-autostart = true
 
 [connection signal="timeout" from="Timer" to="World" method="_on_timer_timeout"]
