@@ -5,6 +5,7 @@ var living: Array[Vector2i]
 var dead: Array[Vector2i]
 var cell: Vector2i
 var neighbors: int
+var playing := false
 
 @export var timer: Timer
 
@@ -49,7 +50,7 @@ func update():
 
 
 func _on_timer_timeout():
-	update()
+	if playing: update()
 
 
 func _ready():
@@ -67,3 +68,7 @@ func _ready():
 		set_cell(0, cells, 0, Vector2i(0,0))
 
 	timer.start()
+
+
+func _input(event):
+	if Input.is_action_just_released("play"): playing = false if playing else true
