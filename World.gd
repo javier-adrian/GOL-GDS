@@ -72,3 +72,4 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_just_released("play"): playing = false if playing else true
+	if Input.is_action_just_released("next"): update()
