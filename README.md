@@ -5,7 +5,7 @@ An iteration of [John Conway's Game of Life](https://en.wikipedia.org/wiki/Conwa
 (Credits to [Afely](https://youtu.be/fJrLBhEkdTw?si=B80ZHNgxD1VsRUxw))
 
 ## Plans
-- Increment frame
+- ~~Increment frame~~ (Done)
 - In-game editing
 - Dynamic world size
 - Blueprints
