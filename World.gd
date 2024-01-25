@@ -6,6 +6,7 @@ var dead: Array[Vector2i]
 var cell: Vector2i
 var neighbors: int
 var playing := false
+var speed: float
 
 @export var timer: Timer
 
@@ -54,6 +55,8 @@ func _on_timer_timeout():
 
 
 func _ready():
+	speed = timer.wait_time
+
 	for x in range(16):
 		for y in range(16):
 			cell = Vector2i(x,y)
@@ -73,3 +76,5 @@ func _ready():
 func _input(event):
 	if Input.is_action_just_released("play"): playing = false if playing else true
 	if Input.is_action_just_released("next"): update()
+	if Input.is_action_just_released("faster"): timer.wait_time /= 2
+	if Input.is_action_just_released("slower"): timer.wait_time *= 2
