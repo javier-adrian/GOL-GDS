@@ -9,4 +9,4 @@ An iteration of [John Conway's Game of Life](https://en.wikipedia.org/wiki/Conwa
 - In-game editing
 - Dynamic world size
 - Blueprints
-- Speed setting
+- ~~Speed setting~~ (Done)
