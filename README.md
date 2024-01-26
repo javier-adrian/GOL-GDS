@@ -10,3 +10,5 @@ An iteration of [John Conway's Game of Life](https://en.wikipedia.org/wiki/Conwa
 - Dynamic world size
 - Blueprints
 - ~~Speed setting~~ (Done)
+- Decrement frame
+- User Interface
