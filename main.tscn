@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dinah6bshumd"]
+[gd_scene load_steps=7 format=3 uid="uid://dinah6bshumd"]
 
 [ext_resource type="Texture2D" uid="uid://bj7rx8wt11eii" path="res://assets/golrev1.png" id="1_7aer6"]
+[ext_resource type="Script" path="res://main.gd" id="1_tlran"]
 [ext_resource type="Script" path="res://World.gd" id="2_i4kns"]
+[ext_resource type="PackedScene" uid="uid://p3hlwbao4w1e" path="res://user_interface.tscn" id="3_r68cr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxwuu"]
 texture = ExtResource("1_7aer6")
@@ -14,6 +16,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_vxwuu")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_tlran")
 
 [node name="World" type="TileMap" parent="." node_paths=PackedStringArray("timer")]
 tile_set = SubResource("TileSet_pxj78")
@@ -25,5 +28,7 @@ timer = NodePath("../Timer")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="UserInterface" parent="." instance=ExtResource("3_r68cr")]
 
 [connection signal="timeout" from="Timer" to="World" method="_on_timer_timeout"]
