@@ -18,17 +18,16 @@ sources/0 = SubResource("TileSetAtlasSource_vxwuu")
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tlran")
 
-[node name="World" type="TileMap" parent="." node_paths=PackedStringArray("timer")]
+[node name="World" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pxj78")
 format = 2
 layer_0/name = "main"
 layer_0/tile_data = PackedInt32Array(196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 131075, 0, 0, 65538, 0, 0, 65570, 0, 0, 196642, 0, 0, 262177, 0, 0, 262176, 0, 0, 262175, 0, 0, 262174, 0, 0, 131102, 0, 0, 196638, 0, 0, 65567, 0, 0)
 script = ExtResource("2_i4kns")
-timer = NodePath("../Timer")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="UserInterface" parent="." instance=ExtResource("3_r68cr")]
 
-[connection signal="timeout" from="Timer" to="World" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

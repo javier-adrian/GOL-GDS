@@ -4,10 +4,6 @@ var living: Array[Vector2i]
 var dead: Array[Vector2i]
 var cell: Vector2i
 var neighbors: int
-var playing := false
-var speed: float
-
-@export var timer: Timer
 
 
 func is_alive(cell: Vector2i):
@@ -49,14 +45,7 @@ func update():
 		set_cell(0, cells, 0, Vector2i(0, 0))
 
 
-func _on_timer_timeout():
-	if playing:
-		update()
-
-
 func _ready():
-	speed = timer.wait_time
-
 	for x in range(16):
 		for y in range(16):
 			cell = Vector2i(x, y)
@@ -69,12 +58,3 @@ func _ready():
 		set_cell(0, cells, 0, Vector2i(1, 0))
 	for cells in living:
 		set_cell(0, cells, 0, Vector2i(0, 0))
-
-	timer.start()
-
-
-func _input(event):
-	if Input.is_action_just_released("play"):
-		playing = false if playing else true
-	if Input.is_action_just_released("next"):
-		update()
