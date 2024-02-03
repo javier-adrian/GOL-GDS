@@ -7,7 +7,7 @@ An iteration of [John Conway's Game of Life](https://en.wikipedia.org/wiki/Conwa
 ## Plans
 - ~~Increment frame~~ (Done)
 - ~~In-game editing~~ (Done)
-- Zoom in/out
+- ~~Zoom in/out~~ (Done)
 - Panning
 - Dynamic world size
 - Blueprints
