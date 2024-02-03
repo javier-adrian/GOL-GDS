@@ -3,6 +3,7 @@ extends Node2D
 @onready var timer := $Timer
 @onready var ui := $UserInterface
 @onready var world := $World
+@onready var camera := $Camera2D
 var started := false
 var playing := false
 
@@ -36,6 +37,10 @@ func _input(event):
 	if Input.is_action_just_released("commit"):
 		world.commit()
 
+	if Input.is_action_just_released("zoom in"):
+		camera.zoom *= 2
+	if Input.is_action_just_released("zoom out"):
+		camera.zoom /= 2
 
 func _on_timer_timeout():
 	if playing:
