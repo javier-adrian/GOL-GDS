@@ -6,8 +6,11 @@ extends Node2D
 @onready var camera := $Camera2D
 var started := false
 var playing := false
+var pan_mode := false
 
 var tile_size = 32
+
+var offset = Vector2.ZERO
 
 
 func _ready():
@@ -37,10 +40,19 @@ func _input(event):
 	if Input.is_action_just_released("commit"):
 		world.commit()
 
-	if Input.is_action_just_released("zoom in"):
+	if Input.is_action_just_released("zoom in") and not pan_mode:
 		camera.zoom *= 2
-	if Input.is_action_just_released("zoom out"):
+	if Input.is_action_just_released("zoom out") and not pan_mode:
 		camera.zoom /= 2
+	
+	if Input.is_action_just_pressed("pan"):
+		pan_mode = true
+		offset = get_global_mouse_position()
+	if Input.is_action_just_released("pan"):
+		pan_mode = false
+	
+	if pan_mode:
+		camera.position -= get_global_mouse_position() - offset
 
 func _on_timer_timeout():
 	if playing:
