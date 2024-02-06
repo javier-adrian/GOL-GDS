@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bj7rx8wt11eii" path="res://assets/golrev1.png" id="1_7aer6"]
 [ext_resource type="Script" path="res://main.gd" id="1_tlran"]
 [ext_resource type="Script" path="res://World.gd" id="2_i4kns"]
-[ext_resource type="PackedScene" uid="uid://p3hlwbao4w1e" path="res://user_interface.tscn" id="3_r68cr"]
+[ext_resource type="PackedScene" uid="uid://g40drh68edha" path="res://viewer.tscn" id="4_jgna4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxwuu"]
 texture = ExtResource("1_7aer6")
@@ -30,9 +30,6 @@ script = ExtResource("2_i4kns")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="UserInterface" parent="." instance=ExtResource("3_r68cr")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
+[node name="Viewer" parent="." instance=ExtResource("4_jgna4")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

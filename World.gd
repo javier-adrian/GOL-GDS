@@ -22,10 +22,11 @@ func get_neighbors(layer: int, cell: Vector2i) -> int:
 					neighbors += 1
 	return neighbors
 
+
 func commit():
 	for cell in get_used_cells(edit_layer):
 		if is_alive(edit_layer, cell):
-			set_cell(main_layer, cell, 0, Vector2i(0,0))
+			set_cell(main_layer, cell, 0, Vector2i(0, 0))
 
 
 func update():
