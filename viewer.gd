@@ -21,3 +21,6 @@ func _input(event):
 
 	if pan_mode:
 		position -= get_global_mouse_position() - mouse_offset
+
+##TODO
+## change pan mode from shift to middle mouse button
