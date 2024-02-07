@@ -16,10 +16,10 @@ func _ready():
 func _input(event):
 	if Input.is_action_just_released("faster"):
 		timer.wait_time /= 2
-		viewer.change_speed(timer.wait_time / 0.5)
+		viewer.change_speed(1 / (timer.wait_time / 0.5))
 	if Input.is_action_just_released("slower"):
 		timer.wait_time *= 2
-		viewer.change_speed(timer.wait_time / 0.5)
+		viewer.change_speed(1 / (timer.wait_time / 0.5))
 
 	if Input.is_action_just_released("play"):
 		playing = !playing

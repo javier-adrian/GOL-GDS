@@ -4,7 +4,7 @@ var pan_mode := false
 var mouse_offset = Vector2.ZERO
 
 func change_speed(speed: float):
-	$UserInterface/MarginContainer/VBoxContainer/Speed.text = "Wait Time: " + str(speed)
+	$UserInterface/MarginContainer/VBoxContainer/Speed.text = "Speed: " + str(speed) + "x"
 
 
 func _input(event):
@@ -21,6 +21,3 @@ func _input(event):
 
 	if pan_mode:
 		position -= get_global_mouse_position() - mouse_offset
-
-##TODO
-## change pan mode from shift to middle mouse button
