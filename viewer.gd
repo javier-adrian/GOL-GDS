@@ -9,6 +9,9 @@ func change_speed(speed: float):
 func update_zoom():
 	$UserInterface/MarginContainer/VBoxContainer/Zoom.text = "Zoom: " + str(zoom.x) + "x"
 
+func update_target(coords: Vector2):
+	$UserInterface/MarginContainer/VBoxContainer/Target.text = "X/Y: " + str(coords.x) + " / " + str(coords.y)
+
 
 func _input(event):
 	if Input.is_action_just_released("zoom in") and not pan_mode:

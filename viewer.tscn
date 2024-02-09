@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://g40drh68edha"]
+[gd_scene load_steps=6 format=3 uid="uid://g40drh68edha"]
 
 [ext_resource type="Script" path="res://viewer.gd" id="1_u8q37"]
 [ext_resource type="FontFile" uid="uid://5kmngrpk2ihf" path="res://assets/Minecraftia-Regular.ttf" id="2_yp6rm"]
@@ -7,6 +7,9 @@
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_y6728"]
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_12tlc"]
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="Viewer" type="Camera2D"]
@@ -33,3 +36,8 @@ label_settings = SubResource("LabelSettings_bjn5x")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_yp6rm")
 label_settings = SubResource("LabelSettings_y6728")
+
+[node name="Target" type="Label" parent="UserInterface/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yp6rm")
+label_settings = SubResource("LabelSettings_12tlc")
