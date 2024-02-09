@@ -11,6 +11,7 @@ var tile_size = 32
 
 func _ready():
 	viewer.change_speed(timer.wait_time / 0.5)
+	viewer.update_zoom()
 
 
 func _input(event):
