@@ -16,6 +16,7 @@ func _ready():
 	viewer.update_zoom()
 	target = floor(get_global_mouse_position() / Vector2(tile_size, tile_size))
 	viewer.update_target(target)
+	viewer.update_playing(playing)
 
 
 func _input(event):
@@ -32,6 +33,7 @@ func _input(event):
 	if Input.is_action_just_released("play"):
 		playing = !playing
 		timer.start()
+		viewer.update_playing(playing)
 	if Input.is_action_just_released("next"):
 		world.update()
 

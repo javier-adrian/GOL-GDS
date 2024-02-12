@@ -12,6 +12,9 @@ func update_zoom():
 func update_target(coords: Vector2):
 	$UserInterface/MarginContainer/VBoxContainer/Target.text = "X/Y: " + str(coords.x) + " / " + str(coords.y)
 
+func update_playing(playing: bool):
+	$UserInterface/Playing.visible = playing
+
 
 func _input(event):
 	if Input.is_action_just_released("zoom in") and not pan_mode:
