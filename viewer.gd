@@ -29,3 +29,6 @@ func _input(event):
 
 	if pan_mode:
 		position -= get_global_mouse_position() - mouse_offset
+	
+	if Input.is_action_just_released("toggle ui"):
+		$UserInterface.visible = !$UserInterface.visible
