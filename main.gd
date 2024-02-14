@@ -38,10 +38,8 @@ func _input(event):
 		world.update()
 
 	if Input.is_action_just_released("add"):
-		# var cell_coords = floor(get_global_mouse_position() / Vector2(tile_size, tile_size))
 		world.set_cell(1, target, 0, Vector2i(0, 0))
 	if Input.is_action_just_released("remove"):
-		# var cell_coords = floor(get_global_mouse_position() / Vector2(tile_size, tile_size))
 		world.set_cell(1, target, 0, Vector2i(1, 0))
 	if Input.is_action_just_released("commit"):
 		world.commit()
