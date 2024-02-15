@@ -15,6 +15,9 @@ func update_target(coords: Vector2):
 func update_playing(playing: bool):
 	$UserInterface/Playing.visible = playing
 
+func update_changes(changes: bool):
+	$UserInterface/Changes.visible = changes
+
 
 func _input(event):
 	if Input.is_action_just_released("zoom in") and not pan_mode:

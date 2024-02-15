@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://g40drh68edha"]
+[gd_scene load_steps=8 format=3 uid="uid://g40drh68edha"]
 
 [ext_resource type="Script" path="res://viewer.gd" id="1_u8q37"]
 [ext_resource type="FontFile" uid="uid://5kmngrpk2ihf" path="res://assets/Minecraftia-Regular.ttf" id="2_yp6rm"]
 [ext_resource type="Texture2D" uid="uid://db1e6fyw0ntkm" path="res://assets/Playing.png" id="3_ox8l4"]
+[ext_resource type="Texture2D" uid="uid://etxta4gw7eqn" path="res://assets/Changes.png" id="4_1a11y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bjn5x"]
 shadow_color = Color(0, 0, 0, 1)
@@ -68,3 +69,29 @@ texture_filter = 1
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 texture = ExtResource("3_ox8l4")
+
+[node name="Changes" type="MarginContainer" parent="UserInterface"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="CenterContainer" type="CenterContainer" parent="UserInterface/Changes"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/Changes/CenterContainer"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+texture = ExtResource("4_1a11y")
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/Changes/CenterContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+texture = ExtResource("4_1a11y")

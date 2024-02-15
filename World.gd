@@ -9,6 +9,10 @@ var main_layer := 0
 var edit_layer := 1
 
 
+func uncommitted():
+	return not get_used_cells(edit_layer).is_empty()
+
+
 func is_alive(layer: int, cell: Vector2i):
 	return get_cell_atlas_coords(layer, cell) == Vector2i(0, 0)
 

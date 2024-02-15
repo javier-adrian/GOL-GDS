@@ -17,6 +17,7 @@ func _ready():
 	target = floor(get_global_mouse_position() / Vector2(tile_size, tile_size))
 	viewer.update_target(target)
 	viewer.update_playing(playing)
+	viewer.update_changes(world.uncommitted())
 
 
 func _input(event):
@@ -46,5 +47,6 @@ func _input(event):
 
 
 func _on_timer_timeout():
+	viewer.update_changes(world.uncommitted())
 	if playing:
 		world.update()
