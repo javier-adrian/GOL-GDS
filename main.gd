@@ -37,13 +37,14 @@ func _input(event):
 		viewer.update_playing(playing)
 	if Input.is_action_just_released("next"):
 		world.update()
-
-	if Input.is_action_just_released("add"):
-		world.set_cell(1, target, 0, Vector2i(0, 0))
-	if Input.is_action_just_released("remove"):
-		world.set_cell(1, target, 0, Vector2i(1, 0))
-	if Input.is_action_just_released("commit"):
-		world.commit()
+	
+	if not playing:
+		if Input.is_action_just_released("add"):
+			world.set_cell(1, target, 0, Vector2i(0, 0))
+		if Input.is_action_just_released("remove"):
+			world.set_cell(1, target, 0, Vector2i(1, 0))
+		if Input.is_action_just_released("commit"):
+			world.commit()
 
 
 func _on_timer_timeout():
