@@ -18,6 +18,9 @@ func update_playing(playing: bool):
 func update_changes(changes: bool):
 	$UserInterface/Changes.visible = changes
 
+##TODO
+## edit and play mode should be exclusive to each other
+## ui for edit and play mode
 
 func _input(event):
 	if Input.is_action_just_released("zoom in") and not pan_mode:
