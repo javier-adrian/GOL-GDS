@@ -27,10 +27,17 @@ func get_neighbors(layer: int, cell: Vector2i) -> int:
 	return neighbors
 
 
-func commit():
+func commit() -> int:
 	for cell in get_used_cells(edit_layer):
 		if is_alive(edit_layer, cell):
 			set_cell(main_layer, cell, 0, Vector2i(0, 0))
+
+	var changes = len(get_used_cells(edit_layer))
+
+	clear_layer(edit_layer)
+
+	return changes
+	
 
 
 func update():

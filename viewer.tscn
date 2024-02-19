@@ -95,3 +95,16 @@ texture_filter = 1
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 texture = ExtResource("4_1a11y")
+
+[node name="Committed" type="MarginContainer" parent="UserInterface"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/Committed"]
+layout_mode = 2

@@ -9,6 +9,7 @@ var playing := false
 var tile_size = 32
 
 var target := Vector2.ZERO
+var changes: int
 
 
 func _ready():
@@ -45,7 +46,8 @@ func _input(event):
 		if Input.is_action_just_released("remove"):
 			world.set_cell(1, target)
 		if Input.is_action_just_released("commit"):
-			world.commit()
+			viewer.update_commits(world.commit())
+			# print(str(world.commit()) + " changes committed.")
 	viewer.update_changes(world.uncommitted())
 
 

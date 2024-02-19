@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4e8on0rlaurb"]
+
+[ext_resource type="FontFile" uid="uid://5kmngrpk2ihf" path="res://assets/Minecraftia-Regular.ttf" id="1_dnkbt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hclql"]
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="commits" type="Label"]
+texture_filter = 1
+theme_override_fonts/font = ExtResource("1_dnkbt")
+text = "2 changes committed."
+label_settings = SubResource("LabelSettings_hclql")
