@@ -36,6 +36,7 @@ func _input(event):
 		playing = !playing
 		timer.start()
 		viewer.update_playing(playing)
+		viewer.update_commits(len(world.get_used_cells(1)), true)
 		world.clear_layer(1)
 	if Input.is_action_just_released("next"):
 		world.update()
@@ -46,7 +47,7 @@ func _input(event):
 		if Input.is_action_just_released("remove"):
 			world.set_cell(1, target)
 		if Input.is_action_just_released("commit"):
-			viewer.update_commits(world.commit())
+			viewer.update_commits(world.commit(), false)
 			# print(str(world.commit()) + " changes committed.")
 	viewer.update_changes(world.uncommitted())
 

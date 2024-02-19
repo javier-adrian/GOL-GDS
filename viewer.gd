@@ -20,9 +20,14 @@ func update_playing(playing: bool):
 func update_changes(changes: bool):
 	$UserInterface/Changes.visible = changes
 	
-func update_commits(changes: int):
+func update_commits(changes: int, deleted: bool):
 	var commit_label := commits_template.instantiate()
-	commit_label.text = str(changes) + " changes committed."
+
+	if not deleted:
+		commit_label.text = str(changes) + " changes committed."
+	else:
+		commit_label.text = str(changes) + " changes deleted."
+
 	$UserInterface/Committed/VBoxContainer.add_child(commit_label)
 	var commit_labels := $UserInterface/Committed/VBoxContainer.get_children()
 
