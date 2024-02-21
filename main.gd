@@ -48,7 +48,6 @@ func _input(event):
 			world.set_cell(1, target)
 		if Input.is_action_just_released("commit"):
 			viewer.update_commits(world.commit(), false)
-			# print(str(world.commit()) + " changes committed.")
 	viewer.update_changes(world.uncommitted())
 
 
