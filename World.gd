@@ -3,7 +3,10 @@ extends TileMap
 var living: Array[Vector2i]
 var dead: Array[Vector2i]
 var cell: Vector2i
-var neighbors: int
+var alive_neighbors: int
+var past_generation: Array[Vector2i]
+var neighbors: Array[Vector2i]
+var neighbors_past_generation: Array[Vector2i]
 
 var main_layer := 0
 var edit_layer := 1
@@ -17,13 +20,23 @@ func is_alive(layer: int, cell: Vector2i):
 	return get_cell_atlas_coords(layer, cell) == Vector2i(0, 0)
 
 
-func get_neighbors(layer: int, cell: Vector2i) -> int:
+func get_alive_neighbors(layer: int, cell: Vector2i) -> int:
 	var neighbors = 0
 	for x in range(cell.x - 1, cell.x + 2):
 		for y in range(cell.y - 1, cell.y + 2):
 			if not (x == cell.x and y == cell.y):
 				if is_alive(layer, Vector2i(x, y)):
 					neighbors += 1
+	return neighbors
+
+
+func get_neighbors(layer: int, cell: Vector2i) -> Array[Vector2i]:
+	var neighbors: Array[Vector2i]= []
+	for x in range(cell.x - 1, cell.x + 2):
+		for y in range(cell.y - 1, cell.y + 2):
+			if not (x == cell.x and y == cell.y):
+				neighbors.append(Vector2i(x,y))
+
 	return neighbors
 
 
@@ -42,39 +55,34 @@ func commit() -> int:
 
 func update():
 	living = []
+	past_generation = get_used_cells(main_layer)
+	neighbors_past_generation = []
 
-	for x in range(16):
-		for y in range(16):
-			cell = Vector2i(x, y)
-			neighbors = get_neighbors(main_layer, cell)
-			if is_alive(main_layer, cell):
-				if neighbors == 2 or neighbors == 3:
-					living.append(cell)
-				else:
-					dead.append(cell)
-			elif neighbors == 3:
+	for cell in past_generation:
+		alive_neighbors = get_alive_neighbors(main_layer, cell)
+		neighbors = get_neighbors(main_layer, cell)
+
+		for neighbor_cell in neighbors:
+			if neighbor_cell not in past_generation:
+				neighbors_past_generation.push_back(neighbor_cell)
+
+		if is_alive(main_layer, cell):
+			if alive_neighbors == 2 or alive_neighbors == 3:
 				living.append(cell)
-			else:
-				dead.append(cell)
+		elif alive_neighbors == 3:
+			living.append(cell)
+
+	for cell in neighbors_past_generation:
+		alive_neighbors = get_alive_neighbors(main_layer, cell)
+		neighbors = get_neighbors(main_layer, cell)
+
+		if is_alive(main_layer, cell):
+			if alive_neighbors == 2 or alive_neighbors == 3:
+				living.append(cell)
+		elif alive_neighbors == 3:
+			living.append(cell)
 
 	clear()
 
-	for cells in dead:
-		set_cell(0, cells, 0, Vector2i(1, 0))
-	for cells in living:
-		set_cell(0, cells, 0, Vector2i(0, 0))
-
-
-func _ready():
-	for x in range(16):
-		for y in range(16):
-			cell = Vector2i(x, y)
-			if is_alive(main_layer, cell):
-				living.append(cell)
-			else:
-				dead.append(cell)
-
-	for cells in dead:
-		set_cell(0, cells, 0, Vector2i(1, 0))
 	for cells in living:
 		set_cell(0, cells, 0, Vector2i(0, 0))
