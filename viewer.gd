@@ -1,7 +1,7 @@
 extends Camera2D
 
 var pan_mode := false
-var mouse_offset = Vector2.ZERO
+var mouse_offset := Vector2.ZERO
 
 var commits_template := preload("res://commits_template.tscn")
 

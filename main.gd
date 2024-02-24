@@ -6,7 +6,7 @@ extends Node2D
 var started := false
 var playing := false
 
-var tile_size = 32
+var tile_size := 32
 
 var target := Vector2.ZERO
 var changes: int

@@ -21,7 +21,7 @@ func is_alive(layer: int, cell: Vector2i):
 
 
 func get_alive_neighbors(layer: int, cell: Vector2i) -> int:
-	var neighbors = 0
+	var neighbors := 0
 	for x in range(cell.x - 1, cell.x + 2):
 		for y in range(cell.y - 1, cell.y + 2):
 			if not (x == cell.x and y == cell.y):
@@ -45,42 +45,39 @@ func commit() -> int:
 		if is_alive(edit_layer, cell):
 			set_cell(main_layer, cell, 0, Vector2i(0, 0))
 
-	var changes = len(get_used_cells(edit_layer))
+	var changes := len(get_used_cells(edit_layer))
 
 	clear_layer(edit_layer)
 
 	return changes
 	
 
+func simulate(past: Array[Vector2i], return_neighbors: bool):
+	var neighbors_past: Array[Vector2i] = []
+
+	for cell in past:
+		alive_neighbors = get_alive_neighbors(main_layer, cell)
+		neighbors = get_neighbors(main_layer, cell)
+
+		if return_neighbors:
+			for neighbor_cell in neighbors:
+				if neighbor_cell not in past_generation:
+					neighbors_past.append(neighbor_cell)
+
+		if is_alive(main_layer, cell):
+			if alive_neighbors == 2 or alive_neighbors == 3:
+				living.append(cell)
+		elif alive_neighbors == 3:
+			living.append(cell)
+		
+	if return_neighbors:
+		return neighbors_past
+
 
 func update():
 	living = []
-	past_generation = get_used_cells(main_layer)
-	neighbors_past_generation = []
-
-	for cell in past_generation:
-		alive_neighbors = get_alive_neighbors(main_layer, cell)
-		neighbors = get_neighbors(main_layer, cell)
-
-		for neighbor_cell in neighbors:
-			if neighbor_cell not in past_generation:
-				neighbors_past_generation.push_back(neighbor_cell)
-
-		if is_alive(main_layer, cell):
-			if alive_neighbors == 2 or alive_neighbors == 3:
-				living.append(cell)
-		elif alive_neighbors == 3:
-			living.append(cell)
-
-	for cell in neighbors_past_generation:
-		alive_neighbors = get_alive_neighbors(main_layer, cell)
-		neighbors = get_neighbors(main_layer, cell)
-
-		if is_alive(main_layer, cell):
-			if alive_neighbors == 2 or alive_neighbors == 3:
-				living.append(cell)
-		elif alive_neighbors == 3:
-			living.append(cell)
+	neighbors_past_generation = simulate(get_used_cells(main_layer), true)
+	simulate(neighbors_past_generation, false)
 
 	clear()
 
