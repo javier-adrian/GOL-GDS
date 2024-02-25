@@ -9,7 +9,7 @@ An iteration of [John Conway's Game of Life](https://en.wikipedia.org/wiki/Conwa
 - ~~In-game editing~~ (Done)
 - ~~Zoom in/out~~ (Done)
 - ~~Panning~~ (Done)
-- ~~Dynamic world size~~ (Issue does not exist after commit 9428f25)
+- ~~Dynamic world size~~ (Issue does not exist after [commit 9428f25](https://github.com/javier-adrian/GOL-GDS/commit/9428f))
 - Blueprints
 - ~~Speed setting~~ (Done)
 - ~~Decrement frame~~ (What was I thinking?)
