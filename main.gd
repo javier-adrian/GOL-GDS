@@ -11,6 +11,8 @@ var tile_size := 32
 var target := Vector2.ZERO
 var changes: int
 
+var glider := false
+
 
 func _ready():
 	viewer.change_speed(timer.wait_time / 0.5)
@@ -24,6 +26,9 @@ func _ready():
 func _input(event):
 	target = floor(get_global_mouse_position() / Vector2(tile_size, tile_size))
 	viewer.update_target(target)
+
+	if Input.is_action_just_released("glider"):
+		glider = !glider
 
 	if Input.is_action_just_released("faster"):
 		timer.wait_time /= 2
@@ -43,8 +48,10 @@ func _input(event):
 	
 	if not playing:
 		if Input.is_action_just_released("add"):
-			# world.set_cell(1, target, 0, Vector2i(0, 0))
-			world.set_pattern(1, target, world.glider)
+			if glider:
+				world.set_pattern(1, target, world.glider)
+			else:
+				world.set_cell(1, target, 0, Vector2i(0, 0))
 		if Input.is_action_just_released("remove"):
 			world.set_cell(1, target)
 		if Input.is_action_just_released("commit"):
