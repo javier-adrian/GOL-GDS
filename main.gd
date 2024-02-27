@@ -49,7 +49,7 @@ func _input(event):
 	if not playing:
 		if Input.is_action_just_released("add"):
 			if glider:
-				world.set_pattern(1, target, world.glider)
+				world.set_pattern(1, target, world.tile_set.get_pattern(1))
 			else:
 				world.set_cell(1, target, 0, Vector2i(0, 0))
 		if Input.is_action_just_released("remove"):

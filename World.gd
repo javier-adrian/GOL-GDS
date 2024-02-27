@@ -11,8 +11,6 @@ var neighbors_past_generation: Array[Vector2i]
 var main_layer := 0
 var edit_layer := 1
 
-var glider := get_pattern(main_layer, [Vector2i(2,1), Vector2i(3,2), Vector2i(3,3), Vector2i(2,3), Vector2i(1,3)])
-
 
 func uncommitted():
 	return not get_used_cells(edit_layer).is_empty()
