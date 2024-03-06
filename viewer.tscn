@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://g40drh68edha"]
+[gd_scene load_steps=10 format=3 uid="uid://g40drh68edha"]
 
 [ext_resource type="Script" path="res://viewer.gd" id="1_u8q37"]
 [ext_resource type="FontFile" uid="uid://5kmngrpk2ihf" path="res://assets/Minecraftia-Regular.ttf" id="2_yp6rm"]
 [ext_resource type="Texture2D" uid="uid://db1e6fyw0ntkm" path="res://assets/Playing.png" id="3_ox8l4"]
 [ext_resource type="Texture2D" uid="uid://etxta4gw7eqn" path="res://assets/Changes.png" id="4_1a11y"]
+[ext_resource type="Texture2D" uid="uid://b3734aqu1x776" path="res://assets/Blueprint.png" id="5_14u5p"]
+[ext_resource type="Texture2D" uid="uid://c117qkg7xiwcw" path="res://assets/Manual.png" id="6_hnfsa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bjn5x"]
 shadow_color = Color(0, 0, 0, 1)
@@ -80,21 +82,57 @@ grow_horizontal = 0
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 
-[node name="CenterContainer" type="CenterContainer" parent="UserInterface/Changes"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/Changes"]
 layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 8
 
-[node name="TextureRect2" type="TextureRect" parent="UserInterface/Changes/CenterContainer"]
+[node name="Changes" type="CenterContainer" parent="UserInterface/Changes/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Changes"]
 modulate = Color(0, 0, 0, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(9, 9)
 layout_mode = 2
 texture = ExtResource("4_1a11y")
 
-[node name="TextureRect" type="TextureRect" parent="UserInterface/Changes/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Changes"]
 texture_filter = 1
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 texture = ExtResource("4_1a11y")
+
+[node name="Blueprint" type="CenterContainer" parent="UserInterface/Changes/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Blueprint"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+texture = ExtResource("5_14u5p")
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Blueprint"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_14u5p")
+
+[node name="Manual" type="CenterContainer" parent="UserInterface/Changes/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Manual"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+texture = ExtResource("6_hnfsa")
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Manual"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_hnfsa")
 
 [node name="Committed" type="MarginContainer" parent="UserInterface"]
 anchors_preset = 2

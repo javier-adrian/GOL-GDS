@@ -5,6 +5,10 @@ var mouse_offset := Vector2.ZERO
 
 var commits_template := preload("res://commits_template.tscn")
 
+func change_mode(blueprint: bool):
+	$UserInterface/Changes/HBoxContainer/Blueprint.visible = blueprint
+	$UserInterface/Changes/HBoxContainer/Manual.visible = !blueprint
+
 func change_speed(speed: float):
 	$UserInterface/MarginContainer/VBoxContainer/Speed.text = "Speed: " + str(speed) + "x"
 
@@ -18,7 +22,7 @@ func update_playing(playing: bool):
 	$UserInterface/Playing.visible = playing
 
 func update_changes(changes: bool):
-	$UserInterface/Changes.visible = changes
+	$UserInterface/Changes/HBoxContainer/Changes.visible = changes
 	
 func update_commits(changes: int, deleted: bool):
 	var commit_label := commits_template.instantiate()

@@ -29,6 +29,7 @@ func _ready():
 	viewer.update_target(target)
 	viewer.update_playing(playing)
 	viewer.update_changes(world.uncommitted())
+	viewer.change_mode(blueprint_mode)
 
 	# var file := FileAccess.open("res://test.pattern", FileAccess.WRITE_READ)
 	# file.store_line(var_to_str(patterns))
@@ -54,6 +55,7 @@ func _input(event):
 
 	if Input.is_action_just_released("blueprint"):
 		blueprint_mode = !blueprint_mode
+		viewer.change_mode(blueprint_mode)
 		if blueprint_mode and not blueprint:
 			blueprint = world.tile_set.get_pattern(0)
 
