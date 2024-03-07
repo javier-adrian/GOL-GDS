@@ -22,26 +22,26 @@ script = ExtResource("1_u8q37")
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
-[node name="MarginContainer" type="MarginContainer" parent="UserInterface"]
+[node name="Information" type="MarginContainer" parent="UserInterface"]
 offset_right = 17.0
 offset_bottom = 38.0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/Information"]
 layout_mode = 2
 
-[node name="Speed" type="Label" parent="UserInterface/MarginContainer/VBoxContainer"]
+[node name="Speed" type="Label" parent="UserInterface/Information/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_yp6rm")
 label_settings = SubResource("LabelSettings_bjn5x")
 
-[node name="Zoom" type="Label" parent="UserInterface/MarginContainer/VBoxContainer"]
+[node name="Zoom" type="Label" parent="UserInterface/Information/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_yp6rm")
 label_settings = SubResource("LabelSettings_y6728")
 
-[node name="Target" type="Label" parent="UserInterface/MarginContainer/VBoxContainer"]
+[node name="Target" type="Label" parent="UserInterface/Information/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_yp6rm")
 label_settings = SubResource("LabelSettings_12tlc")
@@ -72,7 +72,7 @@ custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 texture = ExtResource("3_ox8l4")
 
-[node name="Changes" type="MarginContainer" parent="UserInterface"]
+[node name="Status" type="MarginContainer" parent="UserInterface"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -82,59 +82,59 @@ grow_horizontal = 0
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/Changes"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/Status"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 8
 
-[node name="Changes" type="CenterContainer" parent="UserInterface/Changes/HBoxContainer"]
+[node name="Changes" type="CenterContainer" parent="UserInterface/Status/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="TextureRect2" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Changes"]
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/Status/HBoxContainer/Changes"]
 modulate = Color(0, 0, 0, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(9, 9)
 layout_mode = 2
 texture = ExtResource("4_1a11y")
 
-[node name="TextureRect" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Changes"]
+[node name="TextureRect" type="TextureRect" parent="UserInterface/Status/HBoxContainer/Changes"]
 texture_filter = 1
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 texture = ExtResource("4_1a11y")
 
-[node name="Blueprint" type="CenterContainer" parent="UserInterface/Changes/HBoxContainer"]
+[node name="Blueprint" type="CenterContainer" parent="UserInterface/Status/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Blueprint"]
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/Status/HBoxContainer/Blueprint"]
 modulate = Color(0, 0, 0, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(9, 9)
 layout_mode = 2
 texture = ExtResource("5_14u5p")
 
-[node name="TextureRect" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Blueprint"]
+[node name="TextureRect" type="TextureRect" parent="UserInterface/Status/HBoxContainer/Blueprint"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("5_14u5p")
 
-[node name="Manual" type="CenterContainer" parent="UserInterface/Changes/HBoxContainer"]
+[node name="Manual" type="CenterContainer" parent="UserInterface/Status/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Manual"]
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/Status/HBoxContainer/Manual"]
 modulate = Color(0, 0, 0, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(9, 9)
 layout_mode = 2
 texture = ExtResource("6_hnfsa")
 
-[node name="TextureRect" type="TextureRect" parent="UserInterface/Changes/HBoxContainer/Manual"]
+[node name="TextureRect" type="TextureRect" parent="UserInterface/Status/HBoxContainer/Manual"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("6_hnfsa")
 
-[node name="Committed" type="MarginContainer" parent="UserInterface"]
+[node name="Notifications" type="MarginContainer" parent="UserInterface"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -144,5 +144,5 @@ grow_vertical = 0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/Committed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/Notifications"]
 layout_mode = 2

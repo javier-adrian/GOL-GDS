@@ -6,23 +6,23 @@ var mouse_offset := Vector2.ZERO
 var commits_template := preload("res://commits_template.tscn")
 
 func change_mode(blueprint: bool):
-	$UserInterface/Changes/HBoxContainer/Blueprint.visible = blueprint
-	$UserInterface/Changes/HBoxContainer/Manual.visible = !blueprint
+	$UserInterface/Status/HBoxContainer/Blueprint.visible = blueprint
+	$UserInterface/Status/HBoxContainer/Manual.visible = !blueprint
 
 func change_speed(speed: float):
-	$UserInterface/MarginContainer/VBoxContainer/Speed.text = "Speed: " + str(speed) + "x"
+	$UserInterface/Information/VBoxContainer/Speed.text = "Speed: " + str(speed) + "x"
 
 func update_zoom():
-	$UserInterface/MarginContainer/VBoxContainer/Zoom.text = "Zoom: " + str(zoom.x) + "x"
+	$UserInterface/Information/VBoxContainer/Zoom.text = "Zoom: " + str(zoom.x) + "x"
 
 func update_target(coords: Vector2):
-	$UserInterface/MarginContainer/VBoxContainer/Target.text = "X/Y: " + str(coords.x) + " / " + str(coords.y)
+	$UserInterface/Information/VBoxContainer/Target.text = "X/Y: " + str(coords.x) + " / " + str(coords.y)
 
 func update_playing(playing: bool):
 	$UserInterface/Playing.visible = playing
 
 func update_changes(changes: bool):
-	$UserInterface/Changes/HBoxContainer/Changes.visible = changes
+	$UserInterface/Status/HBoxContainer/Changes.visible = changes
 	
 func update_commits(changes: int, deleted: bool):
 	var commit_label := commits_template.instantiate()
@@ -32,8 +32,8 @@ func update_commits(changes: int, deleted: bool):
 	else:
 		commit_label.text = str(changes) + " changes deleted."
 
-	$UserInterface/Committed/VBoxContainer.add_child(commit_label)
-	var commit_labels := $UserInterface/Committed/VBoxContainer.get_children()
+	$UserInterface/Notifications/VBoxContainer.add_child(commit_label)
+	var commit_labels := $UserInterface/Notifications/VBoxContainer.get_children()
 
 	var commit_object := commit_labels[commit_labels.size() - 1]
 
@@ -43,7 +43,7 @@ func update_commits(changes: int, deleted: bool):
 	tween.finished.connect(delete_last_commit)
 
 func delete_last_commit():
-	var commit_labels := $UserInterface/Committed/VBoxContainer.get_children()
+	var commit_labels := $UserInterface/Notifications/VBoxContainer.get_children()
 
 	# the tween signals get mangled when commit is spammed
 	# hence the purpose of why the following way of culling labels is done.
