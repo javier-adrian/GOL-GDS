@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db1e6fyw0ntkm"
-path="res://.godot/imported/Playing.png-c1d1467e2280ac7efc9d1475afbcdf9b.ctex"
+uid="uid://bj7rx8wt11eii"
+path="res://.godot/imported/golrev1.png-cbcb5605892cd416db66ccbef6c26d0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Playing.png"
-dest_files=["res://.godot/imported/Playing.png-c1d1467e2280ac7efc9d1475afbcdf9b.ctex"]
+source_file="res://assets/sprite/game/golrev1.png"
+dest_files=["res://.godot/imported/golrev1.png-cbcb5605892cd416db66ccbef6c26d0d.ctex"]
 
 [params]
 

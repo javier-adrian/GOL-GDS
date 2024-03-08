@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj7rx8wt11eii"
-path="res://.godot/imported/golrev1.png-a02ed8e7436825f3e71cf9af99852317.ctex"
+uid="uid://b3734aqu1x776"
+path="res://.godot/imported/Blueprint.png-68ca3dcd55b3c033cefdeafe49eefe9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/golrev1.png"
-dest_files=["res://.godot/imported/golrev1.png-a02ed8e7436825f3e71cf9af99852317.ctex"]
+source_file="res://assets/sprite/ui/Blueprint.png"
+dest_files=["res://.godot/imported/Blueprint.png-68ca3dcd55b3c033cefdeafe49eefe9b.ctex"]
 
 [params]
 

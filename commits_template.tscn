@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4e8on0rlaurb"]
 
-[ext_resource type="FontFile" uid="uid://5kmngrpk2ihf" path="res://assets/Minecraftia-Regular.ttf" id="1_dnkbt"]
+[ext_resource type="FontFile" uid="uid://5kmngrpk2ihf" path="res://assets/font/Minecraftia-Regular.ttf" id="1_dnkbt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hclql"]
 shadow_color = Color(0, 0, 0, 1)
