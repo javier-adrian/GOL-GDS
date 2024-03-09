@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dinah6bshumd"]
 
-[ext_resource type="Texture2D" uid="uid://bj7rx8wt11eii" path="res://assets/sprite/game/golrev1.png" id="1_7aer6"]
 [ext_resource type="Script" path="res://main.gd" id="1_tlran"]
 [ext_resource type="Script" path="res://World.gd" id="2_i4kns"]
+[ext_resource type="Texture2D" uid="uid://5qrykpgahwgp" path="res://assets/sprite/game/gol.png" id="2_pfcnf"]
 [ext_resource type="PackedScene" uid="uid://g40drh68edha" path="res://viewer.tscn" id="4_jgna4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hmogo"]
@@ -11,15 +11,14 @@ tile_data = PackedInt32Array(131072, 0, 0, 1, 0, 0, 131073, 0, 0, 65538, 0, 0, 1
 [sub_resource type="TileMapPattern" id="TileMapPattern_svyh7"]
 tile_data = PackedInt32Array(65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 1, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 4, 0, 0, 131076, 0, 0)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxwuu"]
-texture = ExtResource("1_7aer6")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwfrw"]
+texture = ExtResource("2_pfcnf")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_pxj78"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_vxwuu")
+sources/0 = SubResource("TileSetAtlasSource_jwfrw")
 pattern_0 = SubResource("TileMapPattern_hmogo")
 pattern_1 = SubResource("TileMapPattern_svyh7")
 
