@@ -59,6 +59,10 @@ func _input(event):
 		if blueprint_mode and not blueprint:
 			blueprint = world.tile_set.get_pattern(0)
 
+	if event is InputEventMouseMotion and blueprint_mode:
+		world.clear_layer(2)
+		world.set_pattern(2, target, blueprint)
+
 	if event is InputEventKey and event.is_released() and event.keycode >= KEY_1 and event.keycode <= KEY_9:
 		if (event.keycode - KEY_0 - 1) < world.tile_set.get_patterns_count():
 			blueprint = world.tile_set.get_pattern(event.keycode - KEY_0 - 1)

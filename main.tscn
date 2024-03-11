@@ -32,6 +32,9 @@ layer_0/name = "main"
 layer_0/tile_data = PackedInt32Array(196609, 0, 0, 65538, 0, 0, 196610, 0, 0, 131075, 0, 0, 196611, 0, 0, 131102, 0, 0, 196638, 0, 0, 262174, 0, 0, 65567, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 65570, 0, 0, 196642, 0, 0)
 layer_1/name = "edit"
 layer_1/tile_data = PackedInt32Array()
+layer_2/name = "overlay"
+layer_2/modulate = Color(1, 0, 0, 0.4)
+layer_2/tile_data = PackedInt32Array()
 script = ExtResource("2_i4kns")
 
 [node name="Timer" type="Timer" parent="."]
