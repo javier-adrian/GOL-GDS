@@ -11,6 +11,9 @@ var neighbors_past_generation: Array[Vector2i]
 var main_layer := 0
 var edit_layer := 1
 
+var cell_ages: Dictionary
+var cell_age: float
+
 
 func uncommitted():
 	return not get_used_cells(edit_layer).is_empty()
@@ -67,8 +70,15 @@ func simulate(past: Array[Vector2i], return_neighbors: bool):
 		if is_alive(main_layer, cell):
 			if alive_neighbors == 2 or alive_neighbors == 3:
 				living.append(cell)
+				if return_neighbors:
+					if cell_ages.has(cell):
+						cell_ages[cell] += 1
+					else:
+						cell_ages[cell] = 0
 		elif alive_neighbors == 3:
 			living.append(cell)
+		else:
+			cell_ages.erase(cell)
 		
 	if return_neighbors:
 		return neighbors_past
@@ -83,3 +93,12 @@ func update():
 
 	for cells in living:
 		set_cell(0, cells, 0, Vector2i(0, 0))
+
+
+func _use_tile_data_runtime_update(layer, coords):
+	return cell_ages.has(coords)
+
+func _tile_data_runtime_update(layer, coords, tile_data):
+	cell_age = 1.0 - (cell_ages[coords] / 10.0)
+	tile_data.modulate = Color(cell_age, 1, cell_age, 1)
+	print(tile_data.modulate, coords)
