@@ -35,10 +35,8 @@ func _ready():
 	# file.store_line(var_to_str(patterns))
 	# file.close()
 
-	var file := FileAccess.open("res://patterns", FileAccess.READ)
-	var text = file.get_file_as_string("res://patterns")
+	var text = FileAccess.get_file_as_string("res://patterns")
 	var patterns = str_to_var(text)
-	file.close()
 
 	# for pattern in patterns:
 	# 	for active_cell in patterns[pattern]:
