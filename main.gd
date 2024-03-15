@@ -8,6 +8,9 @@ var playing := false
 
 var tile_size := 32
 
+var main_layer := 0
+var edit_layer := 1
+
 var target := Vector2.ZERO
 var changes: int
 
@@ -86,9 +89,9 @@ func _input(event):
 			if blueprint_mode:
 				world.set_pattern(1, target, blueprint)
 			else:
-				world.set_cell(1, target, 0, Vector2i(0, 0))
+				world.set_cell(edit_layer, target, 0, Vector2i(0, 0))
 		if Input.is_action_just_released("remove"):
-			world.set_cell(1, target)
+			world.set_cell(edit_layer, target)
 		if Input.is_action_just_released("commit"):
 			viewer.update_commits(world.commit(), false)
 	viewer.update_changes(world.uncommitted())
