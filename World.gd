@@ -2,7 +2,6 @@ extends TileMap
 
 var living: Array[Vector2i]
 var dead: Array[Vector2i]
-# var cell: Vector2i
 var alive_neighbors: int
 var past_generation: Array[Vector2i]
 var neighbors: Array[Vector2i]
