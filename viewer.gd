@@ -52,9 +52,6 @@ func delete_last_commit():
 		if commit_object.modulate == Color(1, 1, 1, 0):
 			commit_object.queue_free()
 
-##TODO
-## edit and play mode should be exclusive to each other
-## ui for edit and play mode
 
 func _input(event):
 	if Input.is_action_just_released("zoom in") and not pan_mode:
