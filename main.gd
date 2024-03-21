@@ -79,15 +79,15 @@ func _input(event):
 		playing = !playing
 		timer.start()
 		viewer.update_playing(playing)
-		viewer.update_commits(len(world.get_used_cells(1)), true)
-		world.clear_layer(1)
+		viewer.update_commits(len(world.get_used_cells(edit_layer)), true)
+		world.clear_layer(edit_layer)
 	if Input.is_action_just_released("next"):
 		world.update()
 	
 	if not playing:
 		if Input.is_action_just_released("add"):
 			if blueprint_mode:
-				world.set_pattern(1, target, blueprint)
+				world.set_pattern(edit_layer, target, blueprint)
 			else:
 				world.set_cell(edit_layer, target, 0, Vector2i(0, 0))
 		if Input.is_action_just_released("remove"):
