@@ -14,11 +14,11 @@ var cell_ages: Dictionary
 var cell_age: float
 
 
-func uncommitted():
+func uncommitted() -> bool:
 	return not get_used_cells(edit_layer).is_empty()
 
 
-func is_alive(layer: int, cell: Vector2i):
+func is_alive(layer: int, cell: Vector2i) -> bool:
 	return get_cell_atlas_coords(layer, cell) == Vector2i(0, 0)
 
 
@@ -83,7 +83,7 @@ func simulate(past: Array[Vector2i], return_neighbors: bool):
 		return neighbors_past
 
 
-func update():
+func update() -> void:
 	living = []
 	neighbors_past_generation = simulate(get_used_cells(main_layer), true)
 	simulate(neighbors_past_generation, false)
@@ -94,10 +94,10 @@ func update():
 		set_cell(0, cells, 0, Vector2i(0, 0))
 
 
-func _use_tile_data_runtime_update(layer, coords):
+func _use_tile_data_runtime_update(layer, coords) -> bool:
 	return cell_ages.has(coords)
 
-func _tile_data_runtime_update(layer, coords, tile_data):
+func _tile_data_runtime_update(layer, coords, tile_data) -> void:
 	cell_age = 1.0 - (cell_ages[coords] / 10.0)
 	tile_data.modulate = Color(cell_age, 1, cell_age, 1)
 	print(tile_data.modulate, coords)
