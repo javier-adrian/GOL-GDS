@@ -100,4 +100,3 @@ func _use_tile_data_runtime_update(layer, coords) -> bool:
 func _tile_data_runtime_update(layer, coords, tile_data) -> void:
 	cell_age = 1.0 - (cell_ages[coords] / 10.0)
 	tile_data.modulate = Color(cell_age, 1, cell_age, 1)
-	print(tile_data.modulate, coords)
