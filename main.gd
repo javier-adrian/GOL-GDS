@@ -10,6 +10,7 @@ var tile_size := 32
 
 var main_layer := 0
 var edit_layer := 1
+var overlay_layer := 1
 
 var target := Vector2.ZERO
 var changes: int
@@ -61,8 +62,8 @@ func _input(event):
 			blueprint = world.tile_set.get_pattern(0)
 
 	if event is InputEventMouseMotion and blueprint_mode:
-		world.clear_layer(2)
-		world.set_pattern(2, target, blueprint)
+		world.clear_layer(overlay_layer)
+		world.set_pattern(overlay_layer, target, blueprint)
 
 	if event is InputEventKey and event.is_released() and event.keycode >= KEY_1 and event.keycode <= KEY_9:
 		if (event.keycode - KEY_0 - 1) < world.tile_set.get_patterns_count():
