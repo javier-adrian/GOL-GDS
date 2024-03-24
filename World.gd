@@ -91,7 +91,7 @@ func update() -> void:
 	clear()
 
 	for cells in living:
-		set_cell(0, cells, 0, Vector2i(0, 0))
+		set_cell(main_layer, cells, 0, Vector2i(0, 0))
 
 
 func _use_tile_data_runtime_update(layer, coords) -> bool:
