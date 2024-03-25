@@ -10,7 +10,7 @@ var tile_size := 32
 
 var main_layer := 0
 var edit_layer := 1
-var overlay_layer := 1
+var overlay_layer := 2
 
 var target := Vector2.ZERO
 var changes: int
