@@ -60,6 +60,8 @@ func _input(event):
 		viewer.change_mode(blueprint_mode)
 		if blueprint_mode and not blueprint:
 			blueprint = world.tile_set.get_pattern(0)
+		if not blueprint_mode:
+			world.clear_layer(overlay_layer)
 
 	if event is InputEventMouseMotion and blueprint_mode:
 		world.clear_layer(overlay_layer)
