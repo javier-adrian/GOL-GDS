@@ -29,6 +29,7 @@ func get_alive_neighbors(layer: int, cell: Vector2i) -> int:
 			if not (x == cell.x and y == cell.y):
 				if is_alive(layer, Vector2i(x, y)):
 					neighbors += 1
+
 	return neighbors
 
 
