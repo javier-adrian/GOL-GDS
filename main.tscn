@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dinah6bshumd"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_tlran"]
-[ext_resource type="Script" path="res://World.gd" id="2_i4kns"]
+[ext_resource type="Script" path="res://world.gd" id="2_i4kns"]
 [ext_resource type="Texture2D" uid="uid://5qrykpgahwgp" path="res://assets/sprite/game/gol.png" id="2_pfcnf"]
 [ext_resource type="PackedScene" uid="uid://g40drh68edha" path="res://viewer.tscn" id="4_jgna4"]
 
