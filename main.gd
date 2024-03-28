@@ -3,7 +3,7 @@ extends Node2D
 @onready var timer := $Timer
 @onready var world := $World
 @onready var viewer := $Viewer
-var started := false
+
 var playing := false
 
 var tile_size := 32
